@@ -49,26 +49,26 @@ C12 CORRECT
 2 r Z -> 1 7 <- take 2 first
 + -/- Z -> 20 reduce + column-wise gives 20
 Z = 9 -> 0
-         0
-         1
-         0
+0
+1
+0
 means Z is a column of 4 elements with 3th = 9
 1 + 7 + 9 + x = 20 -> x = 3
 Z = 1
-    7
-    9
-    3
+7
+9
+3
 
 C13 CORRECT
 Z = 0 -> 0 1 0 0
-         1 0 0 1
+1 0 0 1
 means Z is matrix of structure:
-         ? 0 ? ?
-         0 ? ? 0
-         
+? 0 ? ?
+0 ? ? 0
+
 +/[2] Z -> 20 6 means
- sum first row = 20
- sum 2nd row = 6
+sum first row = 20
+sum 2nd row = 6
 
 +/[1] Z -> 8 7 6 5 means
 sum 1st column = 8 -> Z[1][1] = 8
@@ -82,7 +82,7 @@ x = 7
 y = -1
 
 Z = 8 0  7 5
-    0 7 -1 0
+0 7 -1 0
 
 C14 CORRECT
 irTex -> all indexes
@@ -139,58 +139,58 @@ D3
 Reverse←{⍵[1+(⍴⍵)-⍳⍴⍵]}
 
 D4
- res←Totalize A;size
- size←1+⍴A
- res←size⍴0
- res[⍳(⍴A)]←A
- res[;size[2]]←+/res
- res[size[1];]←+/[1]res
+res←Totalize A;size
+size←1+⍴A
+res←size⍴0
+res[⍳(⍴A)]←A
+res[;size[2]]←+/res
+res[size[1];]←+/[1]res
 
 D5
- res←Lengths str;pos
- pos←0,(str=' ')/⍳⍴str
- res←((str=' ')/⍳⍴str),1+⍴str
- res←(res-pos)-1
+res←Lengths str;pos
+pos←0,(str=' ')/⍳⍴str
+res←((str=' ')/⍳⍴str),1+⍴str
+res←(res-pos)-1
 
 D6
- To←{⍺,⍺+⍳(⍵-⍺)}
+To←{⍺,⍺+⍳(⍵-⍺)}
 
 
 
 D11
- MaxPlace←{
-     vec←,⍵
-     val←⌈/vec
-     pos←vec⍳val
-     numCols←(⍴⍵)[2]
-     col←numCols|pos
-     row←1+(pos-col)÷numCols
-     ⎕←'The greatest value: ',⍕val,' is in row ',⍕row,', column ',⍕col
- }
+MaxPlace←{
+vec←,⍵
+val←⌈/vec
+pos←vec⍳val
+numCols←(⍴⍵)[2]
+col←numCols|pos
+row←1+(pos-col)÷numCols
+⎕←'The greatest value: ',⍕val,' is in row ',⍕row,', column ',⍕col
+}
 
 D12
 result←v Convert type;vec
 vec←,v
 :If ∧/type='F-C'
-    result←5×(vec-32)÷9
+result←5×(vec-32)÷9
 :Else
-    result←32+9×vec÷5
+result←32+9×vec÷5
 :EndIf
 
 D13
 acc←LoopSum v;acc;vec
- vec←,v
- acc←0
- :For i :In ⍳⍴vec
-     acc←acc+vec[i]
- :EndFor
+vec←,v
+acc←0
+:For i :In ⍳⍴vec
+acc←acc+vec[i]
+:EndFor
 
 D14
- reverted←ReverLoop r
- reverted←''
- :For c :In r
-     reverted←c,reverted
- :EndFor
+reverted←ReverLoop r
+reverted←''
+:For c :In r
+reverted←c,reverted
+:EndFor
 
 G-1
 1. 2 ¯3↑XG1
@@ -205,126 +205,126 @@ G-2
 
 G-3
 ShowVowels str
-  str,[0.5](str∊'aeiouy')\'↑'
+str,[0.5](str∊'aeiouy')\'↑'
 
 G-4
 res←Contraction X;size;nonzeros;indexes;vec
- size←⍴X
- vec←,X
- indexes←(vec≠0)/⍳⍴vec
- nonzeros←(vec≠0)/vec
- res←size,nonzeros,[0.5]indexes
+size←⍴X
+vec←,X
+indexes←(vec≠0)/⍳⍴vec
+nonzeros←(vec≠0)/vec
+res←size,nonzeros,[0.5]indexes
 
 m←Restore sp;size;v
- size←sp[;1]
- v←(×/size)⍴0
- v[1 1↓sparse]←¯1 1↓sparse
- m←size⍴v
+size←sp[;1]
+v←(×/size)⍴0
+v[1 1↓sparse]←¯1 1↓sparse
+m←size⍴v
 
 G-5
- p←char Whiten phrase;nonchars
- nonchars←(phrase≠char)
- nonchars\nonchars/phrase
- 
+p←char Whiten phrase;nonchars
+nonchars←(phrase≠char)
+nonchars\nonchars/phrase
+
 G-6
- title Ontop mat;width;offset
- ⍝ drop the first of sizes(rows)
- width←1↓⍴mat
- ⍝ maximum of 0 and 0.5*(width-len title)
- offset←0⌈⌈0.5×width-⍴title
- ⍝ concatenate offset spaces with title
- ⍝ and take only width elements to 
- ⍝ comply with matrix sizes
- title←width↑(offset⍴' '),title
- ⍝ comma bar = ,[1], concatenate 
- ⍝ vertically. The '-' character will
- ⍝ be expanded to the width of matrix
- ⎕←title⍪'-'⍪mat
+title Ontop mat;width;offset
+⍝ drop the first of sizes(rows)
+width←1↓⍴mat
+⍝ maximum of 0 and 0.5*(width-len title)
+offset←0⌈⌈0.5×width-⍴title
+⍝ concatenate offset spaces with title
+⍝ and take only width elements to 
+⍝ comply with matrix sizes
+title←width↑(offset⍴' '),title
+⍝ comma bar = ,[1], concatenate 
+⍝ vertically. The '-' character will
+⍝ be expanded to the width of matrix
+⎕←title⍪'-'⍪mat
 
 
 G-8
 res←N Free vec;tmp
- ⍝ construct a matrix of the
- ⍝ N original vectors
- ⍝ and shift them 0..N
- ⍝ The column with only zeros
- ⍝ is the column which number is
- ⍝ what we are looking for
- tmp←(¯1+⍳N)⌽(N,⍴XG8)⍴XG8
- ⍝ find the column with zeros only
- ⍝ by reducing by columns (/[1])
- ⍝ with 'or' operation. The 0 in
- ⍝ result will mean column we are
- ⍝ searching, so negate it to get 1
- res←~∨⌿tmp
- ⍝ get the index of these columns
- ⍝ and pick the 1st one
- res←1↑res/⍳⍴XG8
+⍝ construct a matrix of the
+⍝ N original vectors
+⍝ and shift them 0..N
+⍝ The column with only zeros
+⍝ is the column which number is
+⍝ what we are looking for
+tmp←(¯1+⍳N)⌽(N,⍴XG8)⍴XG8
+⍝ find the column with zeros only
+⍝ by reducing by columns (/[1])
+⍝ with 'or' operation. The 0 in
+⍝ result will mean column we are
+⍝ searching, so negate it to get 1
+res←~∨⌿tmp
+⍝ get the index of these columns
+⍝ and pick the 1st one
+res←1↑res/⍳⍴XG8
 
 G-9
- res←N Split tbl;sizes
- sizes←⍴tbl
- ⍝ size of an intermediate structure:
- ⍝ N blocks (which later will become
- ⍝ columns), rows/N rows (per column),
- ⍝ table width(text width)
- sizes←N,(⌈(1↑sizes)÷N),sizes[2]
- ⍝ trick: using 'take' to add
- ⍝ 'missing' empty rows to fill the
- ⍝ last column and avoid repetition
- ⍝ of the text; and resize the
- ⍝ 'adjusted' vector.
- res←sizes⍴((sizes[1]×sizes[2]),2↓sizes)↑XG9
- ⍝ add a space at the end of each row
- ⍝ and store the updated sizes
- sizes←⍴res←res,' '
- ⍝ Transpose: if sizes were (3,4,9), i.e.
- ⍝ 3 blocks by 4 rows of width 9, the new
- ⍝ sizes will be (of the transposed array):
- ⍝ 1 2 3->2 1 3, so it will be (4,3,9) i.e.
- ⍝ 4 blocks of 3 rows of width 9
- res←2 1 3⍉res
- ⍝ and finally 'flatten' the array,
- ⍝ reducing by one dimension
- res←(4,sizes[1]×sizes[3])⍴res
+res←N Split tbl;sizes
+sizes←⍴tbl
+⍝ size of an intermediate structure:
+⍝ N blocks (which later will become
+⍝ columns), rows/N rows (per column),
+⍝ table width(text width)
+sizes←N,(⌈(1↑sizes)÷N),sizes[2]
+⍝ trick: using 'take' to add
+⍝ 'missing' empty rows to fill the
+⍝ last column and avoid repetition
+⍝ of the text; and resize the
+⍝ 'adjusted' vector.
+res←sizes⍴((sizes[1]×sizes[2]),2↓sizes)↑XG9
+⍝ add a space at the end of each row
+⍝ and store the updated sizes
+sizes←⍴res←res,' '
+⍝ Transpose: if sizes were (3,4,9), i.e.
+⍝ 3 blocks by 4 rows of width 9, the new
+⍝ sizes will be (of the transposed array):
+⍝ 1 2 3->2 1 3, so it will be (4,3,9) i.e.
+⍝ 4 blocks of 3 rows of width 9
+res←2 1 3⍉res
+⍝ and finally 'flatten' the array,
+⍝ reducing by one dimension
+res←(4,sizes[1]×sizes[3])⍴res
 
 G-10
 res←nums Expand10 words;size;pos;col1;spaces
- size←⍴words
- ⍝ Positions of the numbers every time
- ⍝ they change calculated as a vector minus
- ⍝ itself with shifted with one position,
- ⍝ then drop the last element
- pos←0≠¯1↓(nums,0)-0,nums
- ⍝ 1st column is fomatted numbers in fields
- ⍝ of 4 characters max, then reshaped to
- ⍝ number of rows x 4
- col1←((1↑⍴nums),4)⍴4 0⍕nums
- ⍝ the format aligns by right, so let's rotate
- ⍝ the 1st column by number of spaces in each
- ⍝ row
- col1←(+/' '=col1)⌽col1
- res←col1,words
- ⍝ calculate size of the new vector used in
- ⍝ expand function: it should consist of
- ⍝ number of the elements in original +
- ⍝ number of empty lines. Fill this vector
- ⍝ with 1s
- spaces←(+/¯1,(1↑size),pos)⍴1
- ⍝ Create a list of positions where to
- ⍝ insert empty lines, except first position
- pos←1↓pos/⍳⍴pos
- ⍝ adjust it considering every insert will
- ⍝ increase indexes, therefore we need to
- ⍝ add to every index numbers like 1,2 ... etc
- pos←¯1+pos+⍳⍴pos
- ⍝ ok, now we have indexes of the positions
- ⍝ in the new array where will be spaces.
- ⍝ so set an appropriate positions to 0 in vector
- ⍝ for expansion
- spaces[pos]←0
- ⍝ now result - perform expand on a res
- res←spaces⍀res
+size←⍴words
+⍝ Positions of the numbers every time
+⍝ they change calculated as a vector minus
+⍝ itself with shifted with one position,
+⍝ then drop the last element
+pos←0≠¯1↓(nums,0)-0,nums
+⍝ 1st column is fomatted numbers in fields
+⍝ of 4 characters max, then reshaped to
+⍝ number of rows x 4
+col1←((1↑⍴nums),4)⍴4 0⍕nums
+⍝ the format aligns by right, so let's rotate
+⍝ the 1st column by number of spaces in each
+⍝ row
+col1←(+/' '=col1)⌽col1
+res←col1,words
+⍝ calculate size of the new vector used in
+⍝ expand function: it should consist of
+⍝ number of the elements in original +
+⍝ number of empty lines. Fill this vector
+⍝ with 1s
+spaces←(+/¯1,(1↑size),pos)⍴1
+⍝ Create a list of positions where to
+⍝ insert empty lines, except first position
+pos←1↓pos/⍳⍴pos
+⍝ adjust it considering every insert will
+⍝ increase indexes, therefore we need to
+⍝ add to every index numbers like 1,2 ... etc
+pos←¯1+pos+⍳⍴pos
+⍝ ok, now we have indexes of the positions
+⍝ in the new array where will be spaces.
+⍝ so set an appropriate positions to 0 in vector
+⍝ for expansion
+spaces[pos]←0
+⍝ now result - perform expand on a res
+res←spaces⍀res
 
 
 I-4
@@ -378,3 +378,117 @@ I6Text[⊃,/¯1+I6Start+⍳¨I6Long]
 ⍝ and use as a vector of indexes to select elements
 ⍝ I can uptimize a little using Enlist from IBM APL:
 I6Text[∊¯1+I6Start+⍳¨I6Long]
+
+
+J-1
+total←Refund(rates cat exp);SR;limits
+⍝ First row fo rates are limits, reverse them
+limits←⌽1↑rates
+⍝ Take actual rates (reversed)
+SR←(⌽1↓rates)[cat;]
+⍝ calculate diff between rates, add the minimum
+⍝ at the beginning and convert from procents
+SR←0.01×(⌊/SR),¯2-/SR
+⍝ calculate minimum of spend and each category
+limits←exp∘.⌊,limits
+⍝ now we need to do a element-wise multiplication
+⍝ of limits and SR, and sum over rows
+total←+/limits×SR
+
+J-7:
+
+ a←Area tr;p
+ p←+/tr÷2
+ a←(p×.-0,tr)*0.5
+ 
+J-8:
+r←AllDiffOuter vec
+⍝ First make a matrix via outer product comparing elements to each other
+⍝ In unique vector there should be only diagonal filled,
+⍝ So just count 1s in the matrix, the number of them should be
+⍝ equal to the length of the vector
+r←(⍴vec)=+/+/vec∘.=vec
+
+r←AllDiffInner vec;size
+⍝ Store a size for convenience
+size←⍴vec
+⍝ Implementation is the following:
+⍝ 1) Duplicate vector to make a square matrix
+⍝ 2) Transpose it so the original vector is
+⍝ along the column
+⍝ 3) Inner product with original vector:
+⍝ (row = column) will produce vector of 0s and 1s
+⍝ if the element found, so sum all 1s 
+⍝ finally compare these sums - for unique vector 
+⍝ there should be only 1s in result vector, so
+⍝ 'and' them
+r←1∧.=(⍉(size,size)⍴vec)+.=vec
+
+J-10
+sizes←word In phrase;size
+⍝ Compatibility with APL2, allows us to use ⊃ to unite
+⍝ elements of nested vector to the matrix
+⎕ML←3
+⍝ Store a size of the word
+size←⍴word
+⍝ Using property of the / operator with numeric argument
+⍝ to create a list of subsequent words of size 'size'
+⍝ Then unite this list to the matrix and transpose,
+⍝ So we can use the inner product to find if the word matches
+⍝ We get the list of 0s and 1s, so reduce it over the list
+⍝ of possible indexes
+sizes←(word∧.=⍉⊃size,/phrase)/⍳(1-size)+⍴phrase
+
+J-11
+{tbl}←Gen CrossCount Stat;males;females;stats;gen
+stats←∪Stat
+gen←∪Gen
+males←(Gen='M')/Stat
+females←(Gen='F')/Stat
+tbl←(+/stats∘.=males),[0.5]+/stats∘.=females
+⎕←(' ',stats)⍪'MF',tbl
+
+
+K-2
+R←D2H nums;mat;chrs
+⍝ Array of characters
+chrs←'0123456789ABCDEF'
+⍝ Convert numbers to vector (if it is a single element)
+⍝ Then encode it in 4 positions with base 16
+⍝ The result is matrix where columns are encoded numbers
+mat←(4⍴16)⊤,nums
+⍝ Create character matrix using this matrix as a matrix
+⍝ of indexes, need to +1 since there could be 0s and
+⍝ array numbering is 1 based
+⍝ Then spilt this character matrx column-wise
+R←↓[1]chrs[mat+1]
+
+R←H2D nums;mat;chrs
+⍝ Array of characters
+chrs←'0123456789ABCDEF'
+⍝ Make a (transposed) matrix from list of strings
+⍝ Then create a matrix of indexes in chrs
+⍝ Subtract 1 since the array indexes are 1-based
+⍝ The result is matrix where rows are encoded numbers
+mat←⍉¯1+chrs⍳↑nums
+⍝ Decode matrix
+R←(4⍴16)⊥mat
+
+K-3
+8+12?22
+37+?4 6⍴10
+5 2⍴¯5+10?10
+
+K-4
+.0001×100+?15⍴800
+
+K-5
+From 10 to 20 numbers in range 10-20
+
+K-6
+List[5?⍴List]
+
+K-7
+3+?(6+?10)⍴37
+
+
