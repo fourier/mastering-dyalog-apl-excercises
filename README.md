@@ -1,3 +1,11 @@
-# mastering-dyalog-apl-excercises
-My solutions to excercises in the [Mastering Dyalog APL book by B.Legrand](http://dyalog.com/mastering-dyalog-apl.htm)
-(to excercises where it makes sense).
+# Give Up GitHub
+
+This project has given up GitHub.  ([See Software Freedom Conservancy's *Give Up  GitHub* site for details](https://GiveUpGitHub.org).)
+
+You can now find this project at [https://codeberg.org/fourier/mastering-dyalog-apl-excercises](https://codeberg.org/fourier/mastering-dyalog-apl-excercises) instead.
+
+Any use of this project's code by GitHub Copilot, past or present, is done without our permission.  We do not consent to GitHub's use of this project's code in Copilot.
+
+Join us; you can [give up GitHub](https://GiveUpGitHub.org) too!
+
+![Logo of the GiveUpGitHub campaign](https://sfconservancy.org/img/GiveUpGitHub.png)
